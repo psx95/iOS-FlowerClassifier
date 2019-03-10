@@ -18,16 +18,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G80-we-PfO">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pVm-ai-nVp">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                            </imageView>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G80-we-PfO">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="402"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description Comes Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zq4-8D-5jC">
+                                        <rect key="frame" x="0.0" y="402" width="375" height="201"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Zq4-8D-5jC" firstAttribute="height" secondItem="G80-we-PfO" secondAttribute="height" multiplier="1:2" id="Oro-gX-yfH"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="G80-we-PfO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PlT-Xg-wLR"/>
-                            <constraint firstItem="G80-we-PfO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Saa-go-Vbb"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="G80-we-PfO" secondAttribute="trailing" id="o9X-f8-BjR"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="G80-we-PfO" secondAttribute="bottom" id="uPx-kD-ue8"/>
+                            <constraint firstItem="pVm-ai-nVp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7hj-bR-T4t"/>
+                            <constraint firstItem="pVm-ai-nVp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CqS-UI-uNl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pVm-ai-nVp" secondAttribute="bottom" id="hap-vs-oVj"/>
+                            <constraint firstItem="pVm-ai-nVp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pSz-Zh-bdh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -44,7 +58,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="466" y="97"/>
+            <point key="canvasLocation" x="464.80000000000001" y="96.7016491754123"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qp8-yI-y3g">
