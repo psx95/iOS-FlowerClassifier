@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wA8-t8-zBP">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,34 +15,31 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FlowerIdentify" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pVm-ai-nVp">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G80-we-PfO">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="336"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zq4-8D-5jC">
-                                        <rect key="frame" x="0.0" y="336" width="320" height="168"/>
-                                        <mutableString key="text">Muscari is a genus of perennial bulbous plants native to Eurasia that produce spikes of dense, most commonly blue, urn-shaped flowers resembling bunches of grapes in the spring. The common name for the genus is grape hyacinth (a name which is also used for the related genera Leopoldia and Pseudomuscari, which were formerly included in Muscari), but they should not be confused with hyacinths. In the United States, they are also commonly referred to as bluebells, though certain regions reserve this name for bluebonnets instead. A number of species of Muscari are used as ornamental garden plants.</mutableString>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G80-we-PfO">
+                                <rect key="frame" x="0.0" y="64" width="375" height="357"/>
                                 <constraints>
-                                    <constraint firstItem="Zq4-8D-5jC" firstAttribute="height" secondItem="G80-we-PfO" secondAttribute="height" multiplier="1:2" id="Oro-gX-yfH"/>
+                                    <constraint firstAttribute="width" secondItem="G80-we-PfO" secondAttribute="height" multiplier="125:119" id="PuD-kP-kmP"/>
                                 </constraints>
-                            </stackView>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4iP-ch-SMO">
+                                <rect key="frame" x="16" y="429" width="343" height="218"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="pVm-ai-nVp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7hj-bR-T4t"/>
-                            <constraint firstItem="pVm-ai-nVp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CqS-UI-uNl"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="pVm-ai-nVp" secondAttribute="bottom" id="hap-vs-oVj"/>
-                            <constraint firstItem="pVm-ai-nVp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="pSz-Zh-bdh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4iP-ch-SMO" secondAttribute="bottom" constant="20" id="3Z2-qU-L4D"/>
+                            <constraint firstItem="G80-we-PfO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7FC-81-nPW"/>
+                            <constraint firstItem="4iP-ch-SMO" firstAttribute="top" secondItem="G80-we-PfO" secondAttribute="bottom" constant="8" id="jlU-k3-uri"/>
+                            <constraint firstItem="G80-we-PfO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="knG-i2-7tl"/>
+                            <constraint firstItem="G80-we-PfO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tRU-ba-0kh"/>
+                            <constraint firstItem="4iP-ch-SMO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="vTK-L2-bfk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4iP-ch-SMO" secondAttribute="trailing" constant="16" id="zef-iE-8tp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -54,7 +51,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="descriptionLabel" destination="Zq4-8D-5jC" id="jPU-sj-kD3"/>
+                        <outlet property="descriptionLabel" destination="4iP-ch-SMO" id="aZF-Nz-S6N"/>
                         <outlet property="imageView" destination="G80-we-PfO" id="2uI-AW-B8n"/>
                     </connections>
                 </viewController>
@@ -67,7 +64,7 @@
             <objects>
                 <navigationController id="wA8-t8-zBP" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c8y-qp-heq">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>

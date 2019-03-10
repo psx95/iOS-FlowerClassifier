@@ -14,7 +14,7 @@ import SwiftyJSON
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!    
     @IBOutlet weak var descriptionLabel: UILabel!
     
     let imagePicker = UIImagePickerController()
@@ -96,6 +96,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 print ("Page id is \(pageId)")
                 let description: String = jsonResponse["query"]["pages"][pageId]["extract"].stringValue
                 self.displayInfo(info: description)
+            } else if response.result.isFailure {
+                self.displayInfo(info: "Some error occured while fetching info")
             }
         }
     }
