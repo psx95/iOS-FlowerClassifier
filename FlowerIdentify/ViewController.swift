@@ -15,6 +15,7 @@ import SwiftyJSON
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     let imagePicker = UIImagePickerController()
     let wikiApiUrl = "https://en.wikipedia.org/w/api.php"
@@ -91,15 +92,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 print("Api request successfull")
                 let jsonResponse : JSON = JSON(response.result.value!)
                 print("Response is \(jsonResponse)")
-                let pageId: String = jsonResponse["query"]["pageids"][0].string!
+                let pageId = jsonResponse["query"]["pageids"][0].stringValue
                 print ("Page id is \(pageId)")
-              //  displayInfo(info: jsonResponse["query"]["pages"][]["extract"])
+                let description: String = jsonResponse["query"]["pages"][pageId]["extract"].stringValue
+                self.displayInfo(info: description)
             }
         }
     }
     
     private func displayInfo (info: String) {
         print ("Final Extract is \(info)")
+        descriptionLabel.text = info
     }
 
 
