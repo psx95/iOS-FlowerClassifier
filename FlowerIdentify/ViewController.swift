@@ -9,12 +9,15 @@
 import UIKit
 import CoreML
 import Vision
+import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     
     let imagePicker = UIImagePickerController()
+    let wikiApiUrl = "https://en.wikipedia.org/w/api.php"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +56,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 if let firstResult = results.first {
                     print(firstResult.identifier)
                     self.navigationItem.title = firstResult.identifier.capitalized
+                    self.getFlowerInfo(forName: firstResult.identifier)
                 }
+                
+                
             }
             
             // Process the request created above
@@ -67,10 +73,37 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             print("Some error occured")
         }
     }
+    
+    private func getFlowerInfo(forName flower: String){
+        let params: [String:String] = [
+            "format" : "json",
+            "action" : "query",
+            "prop" : "extracts",
+            "exintro" : "",
+            "explaintext" : "",
+            "titles" : flower,
+            "indexpageids" : "",
+            "redirects" : "1",
+            ]
+        
+        Alamofire.request(wikiApiUrl, method: .get, parameters: params).responseJSON { (response) in
+            if response.result.isSuccess {
+                print("Api request successfull")
+                let jsonResponse : JSON = JSON(response.result.value!)
+                print("Response is \(jsonResponse)")
+                let pageId: String = jsonResponse["query"]["pageids"][0].string!
+                print ("Page id is \(pageId)")
+              //  displayInfo(info: jsonResponse["query"]["pages"][]["extract"])
+            }
+        }
+    }
+    
+    private func displayInfo (info: String) {
+        print ("Final Extract is \(info)")
+    }
 
 
     @IBAction func onCameraButtonClicked(_ sender: UIBarButtonItem) {
         present(imagePicker, animated: true, completion: nil)
     }
 }
-
