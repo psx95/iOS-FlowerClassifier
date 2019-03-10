@@ -41,8 +41,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     private func detect (ciImage: CIImage) {
         do {
+            // Create the model that will be used for classifying the flowers
             let model = try VNCoreMLModel(for: FlowerClassifier().model)
             
+            // create a request that uses the model created above
             let request = VNCoreMLRequest(model: model) { (vnRequest, error) in
                 guard let results = vnRequest.results as? [VNClassificationObservation] else {
                     fatalError("Could not convert Results to classification")
@@ -50,10 +52,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 
                 if let firstResult = results.first {
                     print(firstResult.identifier)
-                    self.navigationItem.title = firstResult.identifier
+                    self.navigationItem.title = firstResult.identifier.capitalized
                 }
             }
             
+            // Process the request created above
             let handler = VNImageRequestHandler(ciImage: ciImage)
             do {
                 try handler.perform([request])
