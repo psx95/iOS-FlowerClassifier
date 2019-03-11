@@ -11,6 +11,7 @@ import CoreML
 import Vision
 import Alamofire
 import SwiftyJSON
+import SDWebImage
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -79,12 +80,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let params: [String:String] = [
             "format" : "json",
             "action" : "query",
-            "prop" : "extracts",
+            "prop" : "extracts|pageimages",
             "exintro" : "",
             "explaintext" : "",
             "titles" : flower,
             "indexpageids" : "",
             "redirects" : "1",
+            "pithumbsize": "500"
             ]
         
         Alamofire.request(wikiApiUrl, method: .get, parameters: params).responseJSON { (response) in
@@ -95,6 +97,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 let pageId = jsonResponse["query"]["pageids"][0].stringValue
                 print ("Page id is \(pageId)")
                 let description: String = jsonResponse["query"]["pages"][pageId]["extract"].stringValue
+                let flowerImageUrl: String = jsonResponse["query"]["pages"][pageId]["thumbnail"]["source"].stringValue
+                
+                self.imageView.sd_setImage(with: URL(string: flowerImageUrl), completed: nil)
                 self.displayInfo(info: description)
             } else if response.result.isFailure {
                 self.displayInfo(info: "Some error occured while fetching info")
