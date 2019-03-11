@@ -18,20 +18,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G80-we-PfO">
-                                <rect key="frame" x="0.0" y="64" width="375" height="357"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G80-we-PfO">
+                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="G80-we-PfO" secondAttribute="height" multiplier="125:119" id="PuD-kP-kmP"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="320" id="4Fj-ei-Ukv"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="68Z-u6-3Mf"/>
+                                    <constraint firstAttribute="width" secondItem="G80-we-PfO" secondAttribute="height" multiplier="1:1" id="PuD-kP-kmP"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="4iP-ch-SMO">
-                                <rect key="frame" x="16" y="429" width="343" height="218"/>
+                                <rect key="frame" x="16" y="447" width="343" height="200"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.091772456231795016" green="0.55234771573604058" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4iP-ch-SMO" secondAttribute="bottom" constant="20" id="3Z2-qU-L4D"/>
                             <constraint firstItem="G80-we-PfO" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7FC-81-nPW"/>
@@ -45,6 +47,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="xYt-ZY-zC7">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="ycE-cU-kv9">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="onCameraButtonClicked:" destination="BYZ-38-t0r" id="7Z4-F5-bam"/>
                             </connections>
@@ -66,6 +69,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c8y-qp-heq">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.15292871408217806" green="0.5" blue="0.18985913399007714" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="y4I-UD-3ch"/>
